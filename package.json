@@ -1,0 +1,25 @@
+{
+  "name": "api-test-automation",
+  "version": "1.0.0",
+  "description": "API test automation project using TypeScript, Node.js, Playwright, and Supertest.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:api": "ts-node src/tests/api.test.ts"
+  },
+  "dependencies": {
+    "supertest": "^6.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "ts-node": "^10.4.0",
+    "jest": "^27.0.6",
+    "@playwright/test": "^1.14.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "author": "",
+  "license": "ISC"
+}
