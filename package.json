@@ -8,13 +8,15 @@
     "test:api": "ts-node src/tests/api.test.ts"
   },
   "dependencies": {
-    "supertest": "^6.1.6"
+    "supertest": "^7.1.3"
   },
   "devDependencies": {
-    "typescript": "^4.5.4",
+    "@types/jest": "^30.0.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
     "ts-node": "^10.4.0",
-    "jest": "^27.0.6",
-    "@playwright/test": "^1.14.0"
+    "typescript": "^4.5.4"
   },
   "jest": {
     "preset": "ts-jest",
