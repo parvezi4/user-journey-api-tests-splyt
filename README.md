@@ -66,6 +66,10 @@ npx jest <post | patch | get>
 - Test cases are located in `src/tests/api.test.ts`. You can define your API tests using Jest and Supertest.
 - Utility functions can be added to `src/utils/helpers.ts` to assist with test data setup and request handling.
 
+### Test Reports
+
+- JUnit test reports will be generated in `src/tests/junit.xml` whichi can be configured from package.json under `jest -> reporters`.
+
 ## Presentation deck
 
 A presentation deck explaining the project can be found [here](https://docs.google.com/presentation/d/1wHHqtE6UjXX1G7E-ox4f7Y__hzUi9hW3HYmCogBKRPo/edit?usp=sharing).
