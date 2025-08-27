@@ -1,6 +1,6 @@
 # API Test Automation Project
 
-This project is an API test automation framework built using TypeScript and Node.js. It leverages Playwright for browser automation and Supertest for HTTP assertions, allowing for comprehensive testing of API endpoints.
+This project is an API test automation framework built using TypeScript and Node.js. It leverages Jest for test execution and Supertest for HTTP assertions. I attempt test /api/journey endpoint with POST, PATCH and GET requests.
 
 ## Project Structure
 
@@ -8,9 +8,9 @@ This project is an API test automation framework built using TypeScript and Node
 api-test-automation
 ├── src
 │   ├── tests
-│   │   └── api.test.ts       # Contains test cases for the API
+│   │   └── api.test.ts        # Contains test cases for the API
 │   └── utils
-│       └── helpers.ts        # Utility functions for testing
+│       └── helpers.ts         # Utility functions for testing
 ├── package.json               # npm configuration file
 ├── tsconfig.json              # TypeScript configuration file
 └── README.md                  # Project documentation
@@ -29,7 +29,6 @@ api-test-automation
 
    ```bash
    git clone <repository-url>
-   cd api-test-automation
    ```
 
 2. Install the dependencies:
