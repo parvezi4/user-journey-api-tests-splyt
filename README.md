@@ -50,16 +50,15 @@ To run the API tests, use the following command:
 npm test
 ```
 
-Or:
+Or a single file using:
+```
+npx jest <file-name like src/tests/journeys.get.test.ts>
+```
+
+Or using a pattern:
 
 ```
-npm test:api
-```
-
-Or run individual tests:
-
-```
-npm test <name_of_test>
+npx jest <post | patch | get>
 ```
 
 ### Writing Tests
