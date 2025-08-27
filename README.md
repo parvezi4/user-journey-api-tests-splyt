@@ -46,32 +46,17 @@ To run the API tests, use the following command:
 npm test
 ```
 
-### Writing Tests
+Or run individual tests:
 
-- Test cases are located in `src/tests/api.test.ts`. You can define your API tests using Playwright and Supertest.
-- Utility functions can be added to `src/utils/helpers.ts` to assist with test data setup and request handling.
-
-### Example
-
-Here is a simple example of how to define a test case in `api.test.ts`:
-
-```typescript
-import request from 'supertest';
-import { expect } from 'chai';
-
-describe('API Tests', () => {
-    it('should return a 200 status for the GET endpoint', async () => {
-        const response = await request('https://api.example.com')
-            .get('/endpoint');
-        expect(response.status).to.equal(200);
-    });
-});
+```
+npm test <name_of_test>
 ```
 
-## Contributing
+### Writing Tests
 
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+- Test cases are located in `src/tests/api.test.ts`. You can define your API tests using Jest and Supertest.
+- Utility functions can be added to `src/utils/helpers.ts` to assist with test data setup and request handling.
 
-## License
+## Presentation deck
 
-This project is licensed under the MIT License.
+A presentation deck explaining the project can be found [here](https://docs.google.com/presentation/d/1a2b3c4d5e6f7g8h9i0j/edit?usp=sharing).
