@@ -5,13 +5,15 @@ This project is an API test automation framework built using TypeScript and Node
 ## Project Structure
 
 ```
-api-test-automation
+user-journey-api-tests-splyt
 ├── src
 │   ├── tests
-│   │   └── api.test.ts        # Contains test cases for the API
+│   │   └── api.test.ts        # Main API test cases (Jest + Supertest)
 │   └── utils
-│       └── helpers.ts         # Utility functions for testing
+│       └── helpers.ts         # Utility functions for test data and requests
+├── node_modules               # Project dependencies
 ├── package.json               # npm configuration file
+├── package-lock.json          # npm lock file
 ├── tsconfig.json              # TypeScript configuration file
 └── README.md                  # Project documentation
 ```
@@ -43,6 +45,12 @@ To run the API tests, use the following command:
 
 ```bash
 npm test
+```
+
+Or:
+
+```
+npm test:api
 ```
 
 Or run individual tests:
