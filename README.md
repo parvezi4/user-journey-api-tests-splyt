@@ -8,14 +8,17 @@ This project is an API test automation framework built using TypeScript and Node
 user-journey-api-tests-splyt
 ├── src
 │   ├── tests
-│   │   └── api.test.ts        # Main API test cases (Jest + Supertest)
-│   └── utils
-│       └── helpers.ts         # Utility functions for test data and requests
-├── node_modules               # Project dependencies
-├── package.json               # npm configuration file
-├── package-lock.json          # npm lock file
-├── tsconfig.json              # TypeScript configuration file
-└── README.md                  # Project documentation
+│   │   ├── journeys.post.test.ts    # POST /api/journeys tests (happy path & boundary values)
+│   │   ├── journeys.patch.test.ts   # PATCH /api/journeys tests (happy path & boundary values)
+│   │   ├── journeys.get.test.ts     # GET /api/journeys/:id tests (happy path & boundary values)
+│   │   ├── config.ts                # Shared configuration (i.e., baseUrl)
+│   │   └── helpers.ts               # Utility functions for test data and requests
+│   └── ...
+├── node_modules                     # Project dependencies
+├── package.json                     # npm configuration file
+├── package-lock.json                # npm lock file
+├── tsconfig.json                    # TypeScript configuration file
+└── README.md                        # Project documentation
 ```
 
 ## Getting Started
