@@ -58,4 +58,4 @@ npm test <name_of_test>
 
 ## Presentation deck
 
-A presentation deck explaining the project can be found [here](https://docs.google.com/presentation/d/1a2b3c4d5e6f7g8h9i0j/edit?usp=sharing).
+A presentation deck explaining the project can be found [here](https://docs.google.com/presentation/d/1wHHqtE6UjXX1G7E-ox4f7Y__hzUi9hW3HYmCogBKRPo/edit?usp=sharing).
