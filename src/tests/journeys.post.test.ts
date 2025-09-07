@@ -26,7 +26,16 @@ describe('User Journey API - Basic test coverage', () => {
  * Boundary value tests for the POST /api/journeys endpoint
  */
 describe('POST /api/journeys - boundary value tests', () => {
-  // Latitude: valid range -90 to 90
+  it('should return an empty passenger object as status 400', async () => {
+    const journey = createJourneyTestData();
+    // (journey as any).passenger = undefined;
+    // journey.passenger = {};
+    delete (journey as any).passenger;
+    const response = await makeApiRequest(baseUrl, 'post', '/api/journeys', journey);
+    expect(response.status).toBe(400);
+  });
+
+  // Pickup Latitude: valid range -90 to 90
   it.each([
     [-90.1, 400],
     [-90, 200],
@@ -39,7 +48,7 @@ describe('POST /api/journeys - boundary value tests', () => {
     expect(response.status).toBe(expectedStatus);
   });
   
-  // Longitude: valid range -180 to 180
+  // Pickup Longitude: valid range -180 to 180
   it.each([
     [-180.1, 400],
     [-180, 200],
@@ -53,6 +62,33 @@ describe('POST /api/journeys - boundary value tests', () => {
   });
 
   // TODO: Repeat combinations of dropoff coordinates
+  // Dropoff Latitude: valid range -90 to 90
+  it.each([
+    [-90.1, 400],
+    [-90, 200],
+    [90, 200],
+    [90.1, 400],
+    [0, 200]
+  ])('should validate dropoff latitude %p to return status %p', async (latitude, expectedStatus) => {
+    const journey = createJourneyTestData();
+    journey.dropoff.latitude = latitude;
+    const response = await makeApiRequest(baseUrl, 'post', '/api/journeys', journey);
+    expect(response.status).toBe(expectedStatus);
+  });
+
+  // Dropoff Longitude: valid range -180 to 180
+  it.each([
+    [-180.1, 400],
+    [-180, 200],
+    [180, 200],
+    [180.1, 400],
+    [0, 200]
+  ])('should validate dropoff longitude %p to return status %p', async (longitude, expectedStatus) => {
+    const journey = createJourneyTestData();
+    journey.dropoff.longitude = longitude;
+    const response = await makeApiRequest(baseUrl, 'post', '/api/journeys', journey);
+    expect(response.status).toBe(expectedStatus);
+  });
 
   // Passenger name: min 1 char, max 50 chars (assuming)
   it('should reject passenger name as empty string', async () => {
@@ -94,6 +130,14 @@ describe('POST /api/journeys - boundary value tests', () => {
     expect(response.status).toBe(400);
   });
 
+  // Potential bug where special characters are accepted for names
+  it('should reject passenger name with certain special characters (i.e., $, #, @, ^, *)', async () => {
+    const journey = createJourneyTestData();
+    journey.passenger.name = 'David O\'brian$ # @ ^ *';
+    const response = await makeApiRequest(baseUrl, 'post', '/api/journeys', journey);
+    expect(response.status).toBe(400);
+  });
+
   // Departure date: test invalid and valid ISO strings
   it('should reject invalid departure_date', async () => {
     const journey = createJourneyTestData();
@@ -104,7 +148,8 @@ describe('POST /api/journeys - boundary value tests', () => {
 
   it('should accept valid ISO departure_date', async () => {
     const journey = createJourneyTestData();
-    journey.departure_date = new Date().toISOString();
+    // journey.departure_date = new Date().toISOString();
+    journey.departure_date = '2025-09-07T08:31:11.214Z';
     const response = await makeApiRequest(baseUrl, 'post', '/api/journeys', journey);
     expect(response.status).toBe(200);
   });
